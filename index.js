@@ -6,7 +6,7 @@ const env = process.env.NODE_ENV || 'dev'
 
 const app = express()
     
-// preflight e headers
+// Browser preflight and headers
 const cors = require('./src/middlewares/cors.js')
 app.use(cors.config);
 app.use(bodyParser.json());
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 require('./src/controllers/contaController')(app)
 
-// Start the server
+// Starts server
 app.listen(port, () => {
     console.log('Running Skylar - Task :' + port)
 });

@@ -60,7 +60,7 @@ router.get('/cadastro/:cadastro_id', async (req,res) => {
     // [END third-request]
 
     const conta = new Conta(cadastro_id, third_response.name, third_response.id)
-    conta.addConta()
+    await conta.add()
 
     return res.redirect(`http://localhost:3000/conta/${cadastro_id}`)
 })

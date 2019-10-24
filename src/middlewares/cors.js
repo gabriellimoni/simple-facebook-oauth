@@ -1,5 +1,3 @@
-// CORS middlewares
-
 module.exports = {
     config: function(req, res, next){
         // Website you wish to allow to connect
@@ -11,13 +9,11 @@ module.exports = {
         // Request headers you wish to allow
         res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
-        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        res.setHeader('Content-Type', 'application/json');
 
-        //intercepts OPTIONS method
         if ('OPTIONS' === req.method) {
-        //respond with 200
-        res.send();
-        return;
+            res.send();
+            return;
         }
 
         next();

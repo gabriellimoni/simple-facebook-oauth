@@ -2,37 +2,36 @@ module.exports = function (id, nome=null, idFacebook=null) {
     /**
     * Adiciona conta à memória do processo
      * Sem retorno
-     * @param {*} conta : Conta object
      */
-    const addConta = function() {
+    const add = function() {
         if (!process.contas) {
             process.contas = []
         }
         process.contas.push(_buildConta())
     }
     /**
+     * - Uso interno
      * Busca conta por id
-     * Retorns first
+     * Retorna o primeiro ou nulo
      * @param {*} conta_id integer
      */
-    const getContaById = function (conta_id) {
+    const _getContaById = function (conta_id) {
         const contas = process.contas.filter(conta => conta.id == conta_id)
         return contas.length > 0 ? contas[0] : null
     }
 
     /**
-     * Internal use
+     * - Uso interno
      */
     function _buildConta () {
         if (!nome && id) {
-            return process.contas ? getContaById(id) : null
+            return process.contas ? _getContaById(id) : null
         }
         return {
             id,
             nome,
             idFacebook,
-            addConta,
-            getContaById,
+            add,
         }
     }
 

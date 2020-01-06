@@ -16,5 +16,5 @@ require('./src/controllers/contaController')(app)
 
 // Starts server
 app.listen(port, () => {
-    console.log('Running Skylar - Task :' + port)
+    console.log('Running on port:' + port)
 });
